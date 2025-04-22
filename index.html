@@ -245,6 +245,21 @@
     z-index: 1000;
   }
 
+
+  .scroll-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  position: fixed;
+  cursor: pointer;
+  z-index: 999;
+}
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
   .arrow path {
     fill: #9c7d3c;
   }
@@ -545,21 +560,21 @@ h6:after {
   document.addEventListener('DOMContentLoaded', function () {
     const scrollToTopElement = document.querySelector('.scroll-to-top');
 
-    // Clic sur le bouton pour remonter en haut
+    // Scroll to top au clic
     scrollToTopElement.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Afficher le bouton uniquement après 70% de scroll
+    // Apparition fluide après 70% de scroll
     window.addEventListener('scroll', function () {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = scrollTop / docHeight;
 
       if (scrollPercent > 0.7) {
-        scrollToTopElement.style.display = 'block';
+        scrollToTopElement.classList.add('visible');
       } else {
-        scrollToTopElement.style.display = 'none';
+        scrollToTopElement.classList.remove('visible');
       }
     });
   });
