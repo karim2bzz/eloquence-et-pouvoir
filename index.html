@@ -28,6 +28,28 @@
     </header>
     <hr style="height: 1px; background-color: #9c7d3c; border: none;"> <br>
 
+    <div class="custom-banner" id="customBannerUnique">
+      <div class="custom-banner__logo">
+      </div>
+    
+      <div class="custom-banner__text">
+        <div class="ep-timer">
+          <div id="timer-text">
+            <img src="EP Icone Event.svg" alt="ep Icon" class="ep-inline-icon">
+            Prochain évènement dans
+            <span id="days">3</span>j 
+            <span id="hours">00</span>h 
+            <span id="minutes">00</span>min 
+            <span id="seconds">00</span>s
+          </div>
+          <div class="progress-row">
+            <div class="progress-bar-container">
+              <div id="progress-bar" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="card">
         <img style = "background : #071322;" src="ep logo.svg">
@@ -60,9 +82,13 @@
           </div>
         </div>
       </div>
+
     
     <hr style="height: 1px; background-color: #9c7d3c; border: none;">
     <footer id="contact">
+      <div class="ep-square">
+        <img src="ep logo.svg" alt="Image EP">
+      </div>
         <p><b>Suivez-nous sur nos réseaux :</b></p>
         <div class="social-icons">
             <a href="https://www.instagram.com/eloquence_et_pouvoir/" target="_blank">
@@ -72,11 +98,155 @@
         <p style = "font-size: 14px;">&copy; 2025 Eloquence & Pouvoir (réalisé par le goat)</p>
     </footer>
 
-</body>
+    <button class="Btn scroll-to-top">
+      <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+        <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path>
+      </svg>
+    </button>
 
+</body>
 </html>
 
 <style>
+
+.custom-banner {
+    display: flex;
+    align-items: center;
+    max-width: 81.5%;
+    margin: 0 auto;
+    margin-top: 23px;
+    margin-bottom: 38px;
+    box-shadow: 0 0 12px #9c7d3c;
+    background: #071322;
+    border-radius: 8px;
+    overflow: hidden;
+    height: auto;
+  }
+
+  .custom-banner__logo {
+    background: #071322;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .custom-banner__logo-image {
+    width: 70px;
+    height: 70px;
+    padding-right: 30px;
+  }
+
+  .custom-banner__text {
+    flex-grow: 1;
+    padding: 10px 5px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    color: #9c7d3c;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .ep-timer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #9c7d3c;
+  }
+
+  #timer-text {
+    font-size: 14px;
+    color: #9c7d3c;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre l'icône Lockroom et le texte */
+    justify-content: center;
+    margin-top: 7px;
+  }
+
+  #timer-text span {
+    font-weight: bold;
+  }
+
+  .ep-inline-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .progress-row {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .progress-bar-container {
+    width: 50%;
+    background-color: #e6e6e6; 
+    border-radius: 2px;
+    height: 8px;
+    margin-top: 1px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #121212;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999; /* Pour apparaître au-dessus du fond */
+    transition: width 0.1s linear;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 749px) {
+    .custom-banner {
+      max-width: 90%;
+    }
+
+    .custom-banner__text {
+      font-size: 12px;
+    }
+
+    .ep-inline-icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    #timer-text {
+      font-size: 0.9rem;
+    }
+
+    .progress-bar-container {
+      width: 88%;
+    }
+  }
+
+.Btn {
+    width: 45px;
+    height: 45px;
+    background: #071322;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    z-index: 1000;
+  }
+
+  .arrow path {
+    fill: #9c7d3c;
+  }
 
 .container-header {
     display: flex;
@@ -308,6 +478,27 @@ h6:after {
       }
     }
 
+    .ep-square {
+      width: 70%; 
+      height: fit-content;
+      margin: 20px auto 16px auto; 
+      background-color: #020509;
+      border-radius: 10px;
+      padding: 1px 2px;
+      margin-top: 10px;
+      margin-bottom: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ep-square img {
+      max-width: 7%;
+      max-height: 7%;
+      object-fit: contain;
+      display: block;
+    }
+
 </style>
   
   
@@ -328,3 +519,54 @@ h6:after {
       });
     });
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollToTopElement = document.querySelector('.scroll-to-top');
+
+    scrollToTopElement.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+<script>
+  // Configuration de la date fixe de fermeture
+  const closingDate = new Date("2025-09-29T16:59:59").getTime(); // Exemple : 23 janvier 2025 à 23h59
+
+  function updateTimer() {
+    const currentTime = new Date().getTime();
+    const remainingTime = closingDate - currentTime;
+
+    if (remainingTime <= 0) {
+      // Affiche "fermée" si le temps est écoulé
+      document.getElementById("timer-text").textContent = "La Lockroom est fermée";
+      document.getElementById("progress-bar").style.width = "100%";
+      return;
+    }
+
+    // Calcul des jours, heures, minutes et secondes restants
+    const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    // Mise à jour des valeurs dans le DOM
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+    // Calcul de la progression de la barre
+    const totalTime = closingDate - (closingDate - (3 * 24 * 60 * 60 * 1000)); // Exemple : 3 jours
+    const elapsedTime = totalTime - remainingTime;
+    const progress = (elapsedTime / totalTime) * 100;
+
+    // Mettre à jour la barre de progression
+    document.getElementById("progress-bar").style.width = progress + "%";
+  }
+
+  // Lancer le timer et le mettre à jour chaque seconde
+  setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
