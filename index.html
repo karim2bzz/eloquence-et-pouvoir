@@ -545,11 +545,26 @@ h6:after {
   document.addEventListener('DOMContentLoaded', function () {
     const scrollToTopElement = document.querySelector('.scroll-to-top');
 
+    // Clic sur le bouton pour remonter en haut
     scrollToTopElement.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Afficher le bouton uniquement après 70% de scroll
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollTop / docHeight;
+
+      if (scrollPercent > 0.7) {
+        scrollToTopElement.style.display = 'block';
+      } else {
+        scrollToTopElement.style.display = 'none';
+      }
+    });
   });
 </script>
+
 
 <script>
   // Configuration de la date fixe de fermeture
