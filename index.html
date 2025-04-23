@@ -157,13 +157,15 @@
     <script>
       const hamburger = document.getElementById('hamburger');
       const navMenuMobile = document.getElementById('navMenuMobile');
-    
+      
       // Quand l'icône hamburger est cliquée
       hamburger.addEventListener('click', () => {
         navMenuMobile.classList.toggle('active');  // Affiche ou masque le menu
         hamburger.classList.toggle('active');      // Transforme l'icône hamburger en croix
+        document.body.classList.toggle('menu-active'); // Empêche le scroll du site
       });
     </script>
+    
     
     
     
