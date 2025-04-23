@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,6 +14,7 @@
   <header>
     <section id="content">
       <div class="container-header">
+        <!-- Logo principal -->
         <a href="index.html">
           <img src="ep logo.svg" alt="Logo Eloquence & Pouvoir" class="logo">
         </a>
@@ -26,7 +28,7 @@
           </ul>
         </nav>
   
-        <!-- Hamburger icon -->
+        <!-- Icône hamburger -->
         <div class="hamburger" id="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -35,16 +37,30 @@
   
         <!-- Menu mobile -->
         <nav class="nav-menu-mobile" id="navMenuMobile">
-          <div class="close-btn" id="closeBtn">&times;</div>
-          <ul>
+          <!-- Logo en haut -->
+          <div class="mobile-header">
+            <img src="ep logo.svg" alt="Logo Eloquence & Pouvoir" class="mobile-logo">
+          </div>
+  
+          <!-- Liens du menu -->
+          <ul class="mobile-nav-links">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="evenements.html">Evènements</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
+  
+          <!-- Réseaux sociaux en bas -->
+          <div class="mobile-footer">
+            <a href="https://www.instagram.com/eloquence_et_pouvoir/" target="_blank" class="instagram-link">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
         </nav>
       </div>
     </section>
   </header>
+  
+  
   
     <hr style="height: 1px; background-color: #9c7d3c; border: none;"> <br>
 
@@ -138,20 +154,15 @@
     <script>
       const hamburger = document.getElementById('hamburger');
       const navMenuMobile = document.getElementById('navMenuMobile');
-      const closeBtn = document.getElementById('closeBtn');
     
       // Quand l'icône hamburger est cliquée
       hamburger.addEventListener('click', () => {
-        navMenuMobile.classList.toggle('active'); // Affiche ou masque le menu
-        hamburger.classList.toggle('active');    // Transforme l'icône hamburger en croix
-      });
-    
-      // Quand le bouton de fermeture (X) est cliqué
-      closeBtn.addEventListener('click', () => {
-        navMenuMobile.classList.remove('active'); // Cache le menu
-        hamburger.classList.remove('active');     // Re-transforme la croix en hamburger
+        navMenuMobile.classList.toggle('active');  // Affiche ou masque le menu
+        hamburger.classList.toggle('active');      // Transforme l'icône hamburger en croix
       });
     </script>
+    
+    
     
 </body>
 </html>
@@ -159,39 +170,75 @@
 <style>
 /* NAV mobile */
 .nav-menu-mobile {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  height: 100vh;
   background-color: #071322;
   z-index: 999;
-  transition: all 0.3s ease;
-  padding: 20px 0;
+  transform: translateX(100%); /* menu hors écran par défaut */
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 20px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
 }
 
 .nav-menu-mobile.active {
-  display: block;
+  transform: translateX(0); /* menu glisse depuis la droite */
 }
 
-.nav-menu-mobile ul {
+/* Mobile header avec logo */
+.mobile-header {
+  border-bottom: 1px solid #9c7d3c;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.mobile-logo {
+  width: 60px;
+  height: auto;
+}
+
+/* Mobile nav links */
+.mobile-nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px; /* espace entre les liens */
 }
 
-.nav-menu-mobile ul li {
-  padding: 10px 20px;
-}
-
-.nav-menu-mobile ul li a {
+.mobile-nav-links li a {
   text-decoration: none;
   color: #9c7d3c;
-  display: block;
-  border-bottom: 1px solid #ffffff;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-/* Hamburger icon */
+/* Footer avec icône Insta */
+.mobile-footer {
+  display: flex;
+  justify-content: center; /* Centrer l'icône Instagram */
+  align-items: center;
+  border-top: 1px solid #9c7d3c;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.instagram-link {
+  color: #9c7d3c;
+  font-size: 30px; /* Taille plus grande pour l'icône */
+  display: inline-block;
+}
+
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -213,7 +260,6 @@
   transition: 0.4s;
 }
 
-/* Animation hamburger -> X */
 .hamburger.active .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -226,7 +272,7 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Responsive mobile only */
+/* Responsive : menu desktop caché */
 @media screen and (max-width: 768px) {
   .nav-menu {
     display: none;
@@ -236,6 +282,14 @@
     display: flex;
   }
 }
+
+
+
+
+
+
+
+
 
 
 
