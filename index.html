@@ -182,28 +182,29 @@
   top: 0;
   right: 0;
   width: 85%;
-  height: 100vh; /* La hauteur du menu est maintenant égale à la hauteur de l'écran */
+  height: 100vh;
   background-color: #071322;
   z-index: 999;
   transform: translateX(100%); /* menu hors écran par défaut */
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligner les éléments vers le haut */
+  justify-content: space-between;
   padding: 30px 20px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
-  overflow-y: hidden; /* Pas de scroll vertical */
+  overflow-y: hidden;  /* Empêche le défilement */
 }
 
+/* Lorsque le menu est actif, il glisse depuis la droite */
 .nav-menu-mobile.active {
-  transform: translateX(0); /* menu glisse depuis la droite */
+  transform: translateX(0);
 }
 
 /* Mobile header avec logo */
 .mobile-header {
   border-bottom: 1px solid #9c7d3c;
-  padding-bottom: 10px; /* Réduction de l'espace en bas */
-  margin-bottom: 10px; /* Réduction de l'espace en bas */
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .mobile-logo {
@@ -219,10 +220,11 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligner vers le haut */
-  gap: 10px; /* Réduction de l'espace entre les liens */
+  justify-content: flex-start; /* Remonter les éléments du menu */
+  gap: 20px; /* réduire l'espace entre les liens */
 }
 
+/* Liens de navigation */
 .mobile-nav-links li a {
   text-decoration: none;
   color: #9c7d3c;
@@ -232,13 +234,13 @@
 
 /* Footer avec icône Insta */
 .mobile-footer {
+  border-top: 1px solid #9c7d3c;
+  padding-top: 20px;
+  margin-top: 0; /* Ne pas ajouter de marge */
   display: flex;
   justify-content: center; /* Centrer l'icône Instagram */
   align-items: center;
-  border-top: 1px solid #9c7d3c;
-  padding-top: 10px; /* Réduction de l'espace en haut */
-  margin-top: 10px; /* Réduction de l'espace en haut */
-  flex-shrink: 0; /* Empêcher la section Insta de rétrécir */
+  margin-bottom: 30px; /* Assurez-vous qu'il est bien visible */
 }
 
 .instagram-link {
@@ -291,6 +293,7 @@
     display: flex;
   }
 }
+
 
 
 
