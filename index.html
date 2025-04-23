@@ -173,17 +173,17 @@
   top: 0;
   right: 0;
   width: 85%;
-  height: 100vh; /* Utilise la hauteur de l'écran */
+  height: 100vh; /* La hauteur du menu est maintenant égale à la hauteur de l'écran */
   background-color: #071322;
   z-index: 999;
   transform: translateX(100%); /* menu hors écran par défaut */
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Contenu aligné en haut */
+  justify-content: flex-start; /* Aligner les éléments vers le haut */
   padding: 30px 20px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
-  overflow-y: visible; /* Pas de défilement vertical */
+  overflow-y: hidden; /* Pas de scroll vertical */
 }
 
 .nav-menu-mobile.active {
@@ -193,7 +193,7 @@
 /* Mobile header avec logo */
 .mobile-header {
   border-bottom: 1px solid #9c7d3c;
-  padding-bottom: 15px; /* Réduction de l'espace en bas */
+  padding-bottom: 10px; /* Réduction de l'espace en bas */
   margin-bottom: 10px; /* Réduction de l'espace en bas */
 }
 
@@ -210,8 +210,8 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Contenu aligné en haut */
-  gap: 15px; /* Réduction de l'espace entre les liens */
+  justify-content: flex-start; /* Aligner vers le haut */
+  gap: 10px; /* Réduction de l'espace entre les liens */
 }
 
 .mobile-nav-links li a {
@@ -227,8 +227,9 @@
   justify-content: center; /* Centrer l'icône Instagram */
   align-items: center;
   border-top: 1px solid #9c7d3c;
-  padding-top: 15px; /* Réduction de l'espace en haut */
-  margin-top: 15px; /* Réduction de l'espace en haut */
+  padding-top: 10px; /* Réduction de l'espace en haut */
+  margin-top: 10px; /* Réduction de l'espace en haut */
+  flex-shrink: 0; /* Empêcher la section Insta de rétrécir */
 }
 
 .instagram-link {
@@ -281,6 +282,7 @@
     display: flex;
   }
 }
+
 
 
 
