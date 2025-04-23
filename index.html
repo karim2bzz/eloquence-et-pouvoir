@@ -48,16 +48,20 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
   
-          <!-- Réseaux sociaux en bas -->
-          <div class="mobile-footer">
-            <a href="https://www.instagram.com/eloquence_et_pouvoir/" target="_blank" class="instagram-link">
-              <i class="fab fa-instagram"></i>
-            </a>
+          <!-- Carré avec texte "Suivez-nous sur les réseaux :" et l'icône Instagram -->
+          <div class="social-media-box">
+            <p>Suivez-nous sur les réseaux :</p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/eloquence_et_pouvoir/" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
           </div>
         </nav>
       </div>
     </section>
   </header>
+  
   
   
   
@@ -151,24 +155,15 @@
 
 
     <script>
-  const hamburger = document.getElementById('hamburger');
-  const navMenuMobile = document.getElementById('navMenuMobile');
-  const body = document.body;
-  
-  // Quand l'icône hamburger est cliquée
-  hamburger.addEventListener('click', () => {
-    navMenuMobile.classList.toggle('active');  // Affiche ou masque le menu
-    hamburger.classList.toggle('active');      // Transforme l'icône hamburger en croix
-
-    // Si le menu est ouvert, empêcher le défilement du body
-    if (navMenuMobile.classList.contains('active')) {
-      body.style.overflow = 'hidden'; // Désactiver le scroll
-    } else {
-      body.style.overflow = 'auto';   // Réactiver le scroll
-    }
-  });
-</script>
-
+      const hamburger = document.getElementById('hamburger');
+      const navMenuMobile = document.getElementById('navMenuMobile');
+    
+      // Quand l'icône hamburger est cliquée
+      hamburger.addEventListener('click', () => {
+        navMenuMobile.classList.toggle('active');  // Affiche ou masque le menu
+        hamburger.classList.toggle('active');      // Transforme l'icône hamburger en croix
+      });
+    </script>
     
     
     
@@ -182,29 +177,28 @@
   top: 0;
   right: 0;
   width: 85%;
-  height: 100vh;
+  height: 100vh; /* Utilise la hauteur de l'écran */
   background-color: #071322;
   z-index: 999;
   transform: translateX(100%); /* menu hors écran par défaut */
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* Contenu aligné en haut */
   padding: 30px 20px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
-  overflow-y: hidden;  /* Empêche le défilement */
+  overflow-y: visible; /* Pas de défilement vertical */
 }
 
-/* Lorsque le menu est actif, il glisse depuis la droite */
 .nav-menu-mobile.active {
-  transform: translateX(0);
+  transform: translateX(0); /* menu glisse depuis la droite */
 }
 
 /* Mobile header avec logo */
 .mobile-header {
   border-bottom: 1px solid #9c7d3c;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 15px; /* Réduction de l'espace en bas */
+  margin-bottom: 10px; /* Réduction de l'espace en bas */
 }
 
 .mobile-logo {
@@ -220,11 +214,10 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Remonter les éléments du menu */
-  gap: 20px; /* réduire l'espace entre les liens */
+  justify-content: flex-start; /* Contenu aligné en haut */
+  gap: 15px; /* Réduction de l'espace entre les liens */
 }
 
-/* Liens de navigation */
 .mobile-nav-links li a {
   text-decoration: none;
   color: #9c7d3c;
@@ -232,21 +225,36 @@
   font-weight: 500;
 }
 
-/* Footer avec icône Insta */
-.mobile-footer {
-  border-top: 1px solid #9c7d3c;
-  padding-top: 20px;
-  margin-top: 0; /* Ne pas ajouter de marge */
+/* Carré avec texte et réseaux sociaux */
+.social-media-box {
+  background-color: #020509; /* Couleur de fond du carré */
+  padding: 20px;
+  margin-top: 20px; /* Espacement au-dessus du carré */
+  border-radius: 10px;
   display: flex;
-  justify-content: center; /* Centrer l'icône Instagram */
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 30px; /* Assurez-vous qu'il est bien visible */
+  text-align: center;
+  color: #9c7d3c;
+}
+
+.social-media-box p {
+  margin-bottom: 15px; /* Espacement entre le texte et l'icône */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .instagram-link {
   color: #9c7d3c;
   font-size: 30px; /* Taille plus grande pour l'icône */
   display: inline-block;
+  margin: 0 10px; /* Espacement entre les icônes si tu ajoutes d'autres réseaux */
 }
 
 /* Hamburger */
@@ -293,8 +301,6 @@
     display: flex;
   }
 }
-
-
 
 
 
