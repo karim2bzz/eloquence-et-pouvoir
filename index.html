@@ -240,6 +240,11 @@
   align-items: center;
   text-align: center;
   color: #9c7d3c;
+  width: 100%;  /* S'assurer que le carré prend toute la largeur disponible */
+  box-sizing: border-box; /* Inclut les padding dans la taille totale */
+  max-width: 300px; /* Limite la largeur du carré pour ne pas être trop grand sur petits écrans */
+  margin-left: auto;
+  margin-right: auto; /* Centrer horizontalement */
 }
 
 .social-media-box p {
@@ -265,7 +270,7 @@
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between; /* Espace les barres de manière uniforme */
   align-items: center;
   width: 40px;
   height: 40px;
