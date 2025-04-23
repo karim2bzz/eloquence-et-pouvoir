@@ -170,6 +170,7 @@
     
     
     
+    
 </body>
 </html>
 
@@ -294,6 +295,11 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* Empêcher le scroll quand le menu hamburger est ouvert */
+body.menu-active {
+  overflow: hidden; /* Désactive le scroll */
+}
+
 /* Responsive : menu desktop caché */
 @media screen and (max-width: 768px) {
   .nav-menu {
@@ -304,6 +310,7 @@
     display: flex;
   }
 }
+
 
 
 
