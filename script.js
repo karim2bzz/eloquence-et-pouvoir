@@ -87,3 +87,36 @@ const questionsYMG = document.querySelectorAll('.faq-question-custom');
   // Lancer le timer et le mettre à jour chaque seconde
   setInterval(updateTimer, 1000);
   updateTimer();
+
+
+
+  const form = document.getElementById('contactForm');
+const merciMessage = document.getElementById('merciMessage');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // bloquer envoi classique
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      // Reset formulaire
+      form.reset();
+
+      // Affiche message de merci
+      merciMessage.style.display = 'flex';
+    } else {
+      alert('Erreur lors de l’envoi. Merci de réessayer.');
+    }
+  } catch (error) {
+    alert('Erreur réseau. Merci de vérifier votre connexion.');
+  }
+});
