@@ -389,11 +389,28 @@ body.menu-active {
   font-family: Arial, sans-serif;
 }
 
-.formulaire-de-contact h1 {
+.titre-contact {
   text-align: center;
   color: #9c7d3c;
   font-size: 20px;
+  justify-content: center;
   margin-bottom: 2rem;
+  padding-top: 10px;
+}
+
+.titre-contact::after {
+  content: "";
+  display: block;
+  width: 120px; /* ajuste à la taille de ton SVG */
+  height: 100px;
+  margin: 0 auto;
+  background-image: url('laurier\ contact.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 999;
+  margin-top: -22px;
+  margin-bottom: -20px;
 }
 
 .formulaire-de-contact__form {
