@@ -74,12 +74,9 @@
     <span>Merci pour votre intérêt, nous répondrons à votre message dès que possible !</span>
   </div>
 
-  <form
-    id="contactForm"
-    action="https://form-backend-ahxw.onrender.com/contact"
-    method="POST"
-    class="formulaire-de-contact__form"
-  >
+  <form action="https://api.web3forms.com/submit" method="POST">
+
+    <input type="hidden" name="access_key" value="2fb17921-25e1-4378-a21b-e5ccdb79c0cd">
     <label for="name">Nom</label>
     <input type="text" id="name" name="name" required />
 
